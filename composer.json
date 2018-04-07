@@ -1,5 +1,5 @@
 {
-    "name": "NGenchev/Holes",
+    "name": "ngenchev/holes",
     "description": "A project about holes",
     "require": {
         "php": "^5.3.3 || ^7.0",
