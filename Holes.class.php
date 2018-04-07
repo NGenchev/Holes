@@ -4,6 +4,7 @@ class Holes
 {
 	private $firebaseRef;
 
+	// Beging of Holes class
 	function __construct($action, $param = null)
 	{	
 
@@ -11,27 +12,22 @@ class Holes
 		define("TOKEN", 'LdPotb0yv6av7LQiei1UzzDCj9v2ai3kLceGiLVM');
 		define("PATH", '/');
 
-		// const URL = 'https://dg-soft-holes.firebaseio.com/';
-		// const TOKEN = 'LdPotb0yv6av7LQiei1UzzDCj9v2ai3kLceGiLVM';
-		// const PATH = '/';
-
 		$this->firebaseRef = new \Firebase\FirebaseLib(URL, TOKEN);
 
 		if(method_exists(__CLASS__, $action))
-			if(isset($param) && $param != null)
-				try
-				{
-					$this->$action($param);
-				}
-				catch(Exception $e)
-				{
-					$this->$action();
-				}
-			else
-				$this->$action();
+			try
+			{
+				$this->$action($param); 
+			}
+			catch(Exception $e)
+			{
+				$this->listing();
+			}
 	}
 
-	private function list()
+	// Private functions
+
+	private function lists()
 	{
 		return $this->firebaseRef->get(PATH . 'Holes/');
 	}
@@ -49,21 +45,24 @@ class Holes
 
 	private function delete($id)
 	{
-		return $this->firebaseRef->delete(PATH."/".$id);
+		return $this->firebaseRef->delete(PATH."/Holes/".$id);
 	}
+
+
+	// Public functions
 
 	public function listing()
 	{
-		echo self::list();
+		echo self::lists();
 	}
 
 	public function addNew($hole)
 	{
-		self::create($hole);
+		echo self::create($hole);
 	}
 
 	public function deleteHole($id)
 	{
-		self::delete($id);
+		echo self::delete($id);
 	}
 }
