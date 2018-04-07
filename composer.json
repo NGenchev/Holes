@@ -1,8 +1,25 @@
 {
-    "name": "ngenchev/holes",
-    "description": "A project about holes",
-    "require": {
-        "php": "^5.3.3 || ^7.0",
-        "another-vendor/package": "1.*"
+  "name": "ngenchev/holes",
+  "description": "FirebaseHOLES Project",
+  "homepage": "https://github.com/ngenchev/holes",
+  "keywords": [
+    "firebase",
+    "REST",
+    "wrapper",
+      "holes"
+  ],
+  "version": "2.2.0",
+  "authors": [
+    {
+      "name": "NGenchev",
+      "email": "thewinner10000001@gmail.com"
     }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=5.3.0"
+  },
+  "autoload": {
+    "classmap": ["src"]
+  }
 }
